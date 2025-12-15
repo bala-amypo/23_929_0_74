@@ -2,12 +2,13 @@ package com.example.demo.entity;
 
 import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Location {
     @Id
-    @Generated(stater)
+    @Generated(strategy=GenerationType.IDENTITY)
 private Long id;
 private String name;
 private Double latitude;
