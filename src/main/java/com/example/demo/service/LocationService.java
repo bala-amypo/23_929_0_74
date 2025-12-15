@@ -1,5 +1,9 @@
 package com.example.demo.service;
 
-public class LocationService {
+import com.example.demo.entity.Location;
+
+public interface LocationService {
     
+Location
+
 }
