@@ -28,6 +28,6 @@ return lcs.createLocation(loc);
 public List<Location> getAll(){
     return lcs.getAllLocations();
 }
-public Optional<Location> get(@PathVar)
+public Optional<Location> get()
 
 }
