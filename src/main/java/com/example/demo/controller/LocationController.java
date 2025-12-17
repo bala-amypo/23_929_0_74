@@ -24,7 +24,6 @@ return lcs.createLocation(loc);
 }
 
 @GetMapping
-
 public List<Location> getAll(){
     return lcs.getAllLocations();
 }
