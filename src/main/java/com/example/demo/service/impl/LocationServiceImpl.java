@@ -25,7 +25,7 @@ public class LocationServiceImpl implements LocationService{
         return lrp.findAll();
     }
     @Override
-    public Location getStudentById(Long id) {
+    public Location getViewByID(Long id) {
         return lrp.findById(id);
     }
     @Override
@@ -36,7 +36,7 @@ public class LocationServiceImpl implements LocationService{
         return lrp.save(existing);
     }
     @Override
-    public void deleteStudent(Long id) {
+    public void delete(Long id) {
         Location locc = getStudentById(id);
         lrp.delete(locc);   
     }

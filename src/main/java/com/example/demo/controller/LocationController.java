@@ -39,18 +39,14 @@ return lcs.getViewByID(id);
 }
 // UPDATE
 @PutMapping("/{id}")
-public Location updateStudent(@PathVariable Long id,
-@Valid @RequestBody Location student)
-{
+public Location updateStudent(@PathVariable Long id,@Valid @RequestBody Location student){
 return lcs.updateStudent(id, student);
 }
 // DELETE
 @DeleteMapping("/{id}")
-public ResponseEntity<String> deleteStudent(@PathVariable Long
-id) {
+public ResponseEntity<String> deleteStudent(@PathVariable Long id) {
 lcs.deleteStudent(id);
 return ResponseEntity.ok("Student deleted successfully");
 }
-
 }
 
