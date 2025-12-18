@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.Valid;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
@@ -35,7 +35,7 @@ public List<Location> getAll(){
 
 @GetMapping("/{id}")
 public Location getStudent(@PathVariable Long id) {
-return service.getStudentById(id);
+return lcs.getStudentById(id);
 }
 // UPDATE
 @PutMapping("/{id}")
