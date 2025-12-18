@@ -27,14 +27,14 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
-    public Location getViewByID(Long id) {
+    public Location getLocationById(Long id) {
         return locationRepository.findById(id)
                 .orElseThrow(() ->
-                        new ResourceNotFoundException("Location not found with id: " + id));
+                        new ResourceNotFoundException("Location not found with id : " + id));
     }
 
     @Override
-    public Location UpadateLoc(Long id, Location location) {
+    public Location updateLocation(Long id, Location location) {
         Location existing = getLocationById(id);
 
         existing.setName(location.getName());
@@ -45,7 +45,7 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
-    public void delete(Long id) {
+    public void deleteLocation(Long id) {
         Location location = getLocationById(id);
         locationRepository.delete(location);
     }
