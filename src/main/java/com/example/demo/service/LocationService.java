@@ -9,4 +9,6 @@ public interface LocationService {
     
 Location createLocation(Location location);
 List<Location> getAllLocations();
+Location getViewByID(Long id);
+Location Upada
 }
