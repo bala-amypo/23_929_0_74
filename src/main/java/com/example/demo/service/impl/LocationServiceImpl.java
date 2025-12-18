@@ -28,10 +28,8 @@ public class LocationServiceImpl implements LocationService {
 
     @Override
     public Location getLocationById(Long id) {
-        return locationRepository.findById(id)
-                .orElseThrow(() ->
-                        new ResourceNotFoundException("Location not found with id : " + id));
-    }
+        return locationRepository.findById(id);
+   }
 
     @Override
     public Location updateLocation(Long id, Location location) {
