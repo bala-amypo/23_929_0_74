@@ -27,5 +27,10 @@ return lcs.createLocation(loc);
 public List<Location> getAll(){
     return lcs.getAllLocations();
 }
+
+@GetMapping("/id")
+public 
+
+
 }
 

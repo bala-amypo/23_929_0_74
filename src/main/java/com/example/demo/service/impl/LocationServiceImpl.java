@@ -32,7 +32,7 @@ ResourceNotFoundException("Student not found"));
 }
 
 @Override
-public Student updateStudent(Long id, Location locc) {
+public Location updateStudent(Long id, Location locc) {
 Location existing = getStudentById(id);
 existing.setName(locc.getName());
 existing.setEmail(locc.getEmail());
