@@ -28,12 +28,24 @@ public List<Location> getAll(){
     return lcs.getAllLocations();
 }
 
-@GetMapping("/id")
-public Location getfindbyid(Long id){
-
-    return lcs.getStudentById(id);
+@GetMapping("/{id}")
+public Location getStudent(@PathVariable Long id) {
+return service.getStudentById(id);
 }
-
+// UPDATE
+@PutMapping("/{id}")
+public Location updateStudent(@PathVariable Long id,
+@Valid @RequestBody Location student)
+{
+return service.updateStudent(id, student);
+}
+// DELETE
+@DeleteMapping("/{id}")
+public ResponseEntity<String> deleteStudent(@PathVariable Long
+id) {
+service.deleteStudent(id);
+return ResponseEntity.ok("Student deleted successfully");
+}
 
 }
 
