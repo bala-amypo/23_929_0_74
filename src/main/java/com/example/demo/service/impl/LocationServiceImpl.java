@@ -6,39 +6,47 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Location;
+import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.LocationRepository;
 import com.example.demo.service.LocationService;
-import com.example.demoaiml.exception.ResourceNotFoundException;
-
 
 @Service
-public class LocationServiceImpl implements LocationService{
+public class LocationServiceImpl implements LocationService {
 
-    
     @Autowired
-    LocationRepository lrp;
-    public Location createLocation(Location location){
-       
-        return lrp.save(location);
+    private LocationRepository locationRepository;
+
+    @Override
+    public Location createLocation(Location location) {
+        return locationRepository.save(location);
     }
-    
-    public List<Location> getAllLocations(){
-        return lrp.findAll();
+
+    @Override
+    public List<Location> getAllLocations() {
+        return locationRepository.findAll();
     }
+
     @Override
     public Location getViewByID(Long id) {
-        return lrp.findById(id);
+        return locationRepository.findById(id)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Location not found with id: " + id));
     }
+
     @Override
-    public Location UpadateLoc(Long id, Location locc) {
-        Location existing = getStudentById(id);
-        existing.setName(locc.getName());
-        existing.setEmail(locc.getEmail());
-        return lrp.save(existing);
+    public Location UpadateLoc(Long id, Location location) {
+        Location existing = getLocationById(id);
+
+        existing.setName(location.getName());
+        existing.setLatitude(location.getLatitude());
+        existing.setLongitude(location.getLongitude());
+
+        return locationRepository.save(existing);
     }
+
     @Override
     public void delete(Long id) {
-        Location locc = getStudentById(id);
-        lrp.delete(locc);   
+        Location location = getLocationById(id);
+        locationRepository.delete(location);
     }
 }
