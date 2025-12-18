@@ -25,7 +25,7 @@ LocationService  lcs;
 
 // for post the data
 @PostMapping("/location")
-public Location addLocation(@RequestBody Location loc){
+public Location addLocation(@Valid @RequestBody Location loc){
 
 return lcs.createLocation(loc);
 }

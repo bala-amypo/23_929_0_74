@@ -21,6 +21,7 @@ public class LocationServiceImpl implements LocationService{
        
         return lrp.save(location);
     }
+    
     public List<Location> getAllLocations(){
         return lrp.findAll();
     }

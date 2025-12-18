@@ -11,7 +11,7 @@ public class Location {
 private Long id;
 @NotNul
 private String name;
-@Colu
+@Column(unique=true)
 private Double latitude;
 private Double longtude;
 public Long getId() {
