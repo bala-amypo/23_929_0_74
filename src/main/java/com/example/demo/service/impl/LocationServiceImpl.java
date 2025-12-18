@@ -14,7 +14,7 @@ import com.example.demoaiml.exception.ResourceNotFoundException;
 @Service
 public class LocationServiceImpl implements LocationService{
 
-    Long uu;
+    
     @Autowired
     LocationRepository lrp;
     public Location createLocation(Location location){
