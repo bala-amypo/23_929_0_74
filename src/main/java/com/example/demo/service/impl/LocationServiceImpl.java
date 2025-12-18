@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.entity.Location;
 import com.example.demo.repository.LocationRepository;
 import com.example.demo.service.LocationService;
+import com.example.demoaiml.exception.ResourceNotFoundException;
 
 
 @Service
@@ -19,18 +20,15 @@ public class LocationServiceImpl implements LocationService{
        
         return lrp.save(location);
     }
-
     public List<Location> getAllLocations(){
         return lrp.findAll();
     }
-
     @Override
 public Location getStudentById(Long id) {
-return repo.findById(id)
+return lrp.findById(id)
 .orElseThrow(()-> new
 ResourceNotFoundException("Student not found"));
 }
-
 @Override
 public Location UpadateLoc(Long id, Location locc) {
 Location existing = getStudentById(id);

@@ -42,13 +42,13 @@ return lcs.getStudentById(id);
 public Location updateStudent(@PathVariable Long id,
 @Valid @RequestBody Location student)
 {
-return service.updateStudent(id, student);
+return lcs.updateStudent(id, student);
 }
 // DELETE
 @DeleteMapping("/{id}")
 public ResponseEntity<String> deleteStudent(@PathVariable Long
 id) {
-service.deleteStudent(id);
+lcs.deleteStudent(id);
 return ResponseEntity.ok("Student deleted successfully");
 }
 
