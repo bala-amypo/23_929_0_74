@@ -9,7 +9,9 @@ public class Location {
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
 private Long id;
+@NotNul
 private String name;
+@Colu
 private Double latitude;
 private Double longtude;
 public Long getId() {
