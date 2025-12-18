@@ -32,16 +32,16 @@ ResourceNotFoundException("Student not found"));
 }
 
 @Override
-public Location updateStudent(Long id, Location locc) {
+public Location UpadateLoc(Long id, Location locc) {
 Location existing = getStudentById(id);
 existing.setName(locc.getName());
 existing.setEmail(locc.getEmail());
-return repo.save(existing);
+return lrp.save(existing);
 }
 
 @Override
 public void deleteStudent(Long id) {
 Location locc = getStudentById(id);
-repo.delete(locc);
+lrp.delete(locc);
 }
 }
