@@ -29,7 +29,10 @@ public List<Location> getAll(){
 }
 
 @GetMapping("/id")
-public 
+public Location getfindbyid(Long id){
+
+    return lcs.getStudentById(id);
+}
 
 
 }
