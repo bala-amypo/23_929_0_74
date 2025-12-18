@@ -39,7 +39,7 @@ public List<Location> getAll(){
 
 @GetMapping("/{id}")
 public Location getStudent(@PathVariable Long id) {
-return lcs.getViewByID(id);
+return lcs.getLocationById(id);
 }
 
 

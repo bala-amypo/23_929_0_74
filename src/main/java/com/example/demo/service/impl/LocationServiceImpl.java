@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Location;
-import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.LocationRepository;
 import com.example.demo.service.LocationService;
 
@@ -28,8 +27,10 @@ public class LocationServiceImpl implements LocationService {
 
     @Override
     public Location getLocationById(Long id) {
-        return locationRepository.findById(id);
-   }
+        return locationRepository.findById(id)
+                .orElseThrow(() ->
+                        new RuntimeException("Location not found with id: " + id));
+    }
 
     @Override
     public Location updateLocation(Long id, Location location) {
