@@ -35,7 +35,7 @@ public List<Location> getAll(){
 
 @GetMapping("/{id}")
 public Location getStudent(@PathVariable Long id) {
-return lcs.getStudentById(id);
+return lcs.getViewByID(id);
 }
 // UPDATE
 @PutMapping("/{id}")
