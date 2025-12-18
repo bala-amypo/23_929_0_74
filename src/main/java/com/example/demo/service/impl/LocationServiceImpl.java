@@ -23,4 +23,25 @@ public class LocationServiceImpl implements LocationService{
     public List<Location> getAllLocations(){
         return lrp.findAll();
     }
+
+    @Override
+public Location getStudentById(Long id) {
+return repo.findById(id)
+.orElseThrow(()-> new
+ResourceNotFoundException("Student not found"));
+}
+
+@Override
+public Student updateStudent(Long id, Location locc) {
+Location existing = getStudentById(id);
+existing.setName(locc.getName());
+existing.setEmail(locc.getEmail());
+return repo.save(existing);
+}
+
+@Override
+public void deleteStudent(Long id) {
+Location locc = getStudentById(id);
+repo.delete(locc);
+}
 }
