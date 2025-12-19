@@ -29,7 +29,7 @@ public class LocationServiceImpl implements LocationService {
     public Location getLocationById(Long id) {
         return locationRepository.findById(id)
                 .orElseThrow(() ->
-                        new RuntimeException("Location not found with id: " + id));
+                        new ResourceNotFoundException("Location not found with id: " + id));
     }
 
     @Override
